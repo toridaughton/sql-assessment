@@ -28,18 +28,7 @@ module.exports = {
             name VARCHAR,
             rating INT, 
             country_id INT NOT NULL REFERENCES countries(country_id)
-            );
-
-            INSERT INTO cities (name, rating, country_id)
-            VALUES ('Las Vegas', 4, 187), 
-            ('Washington', 5, 187),
-            ('Sydney, 4, 9);
-
-            SELECT * 
-            FROM cities
-            JOIN countries
-            ON cities.country_id = countries.country_id
-            ORDER BY cities.rating desc;
+            ); 
 
             insert into countries (name)
             values ('Afghanistan'),
