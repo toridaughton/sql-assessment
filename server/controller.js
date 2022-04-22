@@ -1,3 +1,5 @@
+require(`dotenv`).config()
+
 const Sequelize = require('sequelize')
 
 const {CONNECTION_STRING} = process.env
@@ -25,7 +27,7 @@ module.exports = {
 
             CREATE TABLE cities (
             city_id SERIAL PRIMARY KEY,
-            name VARCHAR,
+            name VARCHAR(100),
             rating INT, 
             country_id INT NOT NULL REFERENCES countries(country_id)
             ); 
@@ -226,6 +228,11 @@ module.exports = {
             ('Yemen'),
             ('Zambia'),
             ('Zimbabwe');
+
+            INSERT INTO cities (name, rating, country_id)
+            VALUES ('Sydney', 4, 9),
+            ('Provo', 2, 187),
+            ('Grantsville', 3, 187);
 
         `).then(() => {
             console.log('DB seeded!')
